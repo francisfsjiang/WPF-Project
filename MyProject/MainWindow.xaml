@@ -8,12 +8,27 @@
             <ColumnDefinition Width="180*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="120*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="378*"/>
         </Grid.RowDefinitions>
         <ScrollViewer x:Name="sv" Grid.Column="1" Margin="0,0,0,-10" Grid.RowSpan="2"/>
-        <Label Grid.Column="0" Grid.Row="0"  Content="Course System" HorizontalAlignment="Left" Margin="19.515,22.797,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="0" Grid.Row="1" Content="Teacher Management" Margin="20,29,35,254" RenderTransformOrigin="0.609,0.072" Click="Button_Click"/>
+        <Label Grid.Column="0" Grid.Row="0"  Content="Course System" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="51" Width="143" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Segoe WP Black"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="Teacher Management" Margin="23,29,22,295" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP Black" FontSize="16">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF59A8EA" Offset="0"/>
+                    <GradientStop Color="#FF2BEAE1" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
         <Grid Grid.Column="1" Grid.Row="1" Name="gridMain"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="Student Management" Margin="23,122,22,202" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP Black" FontSize="16">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF59A8EA" Offset="0"/>
+                    <GradientStop Color="#FF2BEAE1" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Width="518.571" Height="500" Loaded="UserControl_Load">
-    <Grid Height="500" VerticalAlignment="Bottom">
+             mc:Ignorable="d" Width="507" Height="459" Loaded="UserControl_Load">
+    <Grid Height="507" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*"/>
             <RowDefinition Height="70*"/>
             <RowDefinition Height="354*"/>
         </Grid.RowDefinitions>
@@ -42,7 +41,7 @@
 
         <Label Content="TeacherManagement" HorizontalAlignment="Left" Height="33.159" Margin="17.137,18.574,0,0" VerticalAlignment="Top" Width="139.029"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="17.137,20.845,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="171.428,20.844,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="227,33,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="342.857,20.843,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
