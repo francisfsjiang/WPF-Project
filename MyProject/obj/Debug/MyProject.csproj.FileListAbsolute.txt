@@ -48,3 +48,5 @@ D:\Win8\MyProject\MyProject\obj\Debug\MyProject_MarkupCompile.cache
 D:\Win8\MyProject\MyProject\obj\Debug\MyProject.g.resources
 D:\Win8\MyProject\MyProject\obj\Debug\MyProject.Properties.Resources.resources
 D:\Win8\MyProject\MyProject\obj\Debug\MyProject.csproj.GenerateResource.Cache
+D:\Win8\MyProject\MyProject\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Win8\MyProject\MyProject\obj\Debug\MyProject_MarkupCompile.lref

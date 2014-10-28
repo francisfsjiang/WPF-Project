@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <ScrollViewer x:Name="sv" Grid.Column="1" Margin="0,0,0,-10" Grid.RowSpan="2"/>
         <Label Grid.Column="0" Grid.Row="0"  Content="Course System" HorizontalAlignment="Left" Margin="-10,10,0,0" VerticalAlignment="Top" Height="51" Width="143" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe WP Black"/>
-        <Button Grid.Column="0" Grid.Row="1" Content="Teacher&#xD;&#xA;Management" Margin="10,29,10,299" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP SemiLight" FontSize="16">
+        <Button Grid.Column="0" Grid.Row="1" Content="Teacher&#xD;&#xA;Management" Margin="10,29,10,291" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP SemiLight" FontSize="16">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF59A8EA" Offset="0"/>
@@ -22,7 +22,7 @@
             </Button.Background>
         </Button>
         <Grid Grid.Column="1" Grid.Row="1" Name="gridMain"/>
-        <Button Grid.Column="0" Grid.Row="1" Content="Student&#xD;&#xA;Management" Margin="10,110,10,218" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP SemiLight" FontSize="16">
+        <Button Grid.Column="0" Grid.Row="1" Content="Student&#xD;&#xA;Management" Margin="10,110,10,218" RenderTransformOrigin="0.609,0.072" Click="Button_Click" FontFamily="Segoe WP SemiLight" FontSize="16" Visibility="Hidden">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF59A8EA" Offset="0"/>

@@ -2,15 +2,29 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Width="507" Height="459" Loaded="UserControl_Load">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:MyProject"
+             mc:Ignorable="d" Width="507" Height="459" Loaded="LoadTeacherData">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:SexType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+
     <Grid Height="459" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition Height="71*"/>
             <RowDefinition Height="378*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="dg" AutoGenerateColumns="False" Grid.Row="2" Margin="1,2,-1,0" RenderTransformOrigin="0.5,0.5" >
+        <DataGrid Name="dg" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" Grid.Row="2" Margin="1,2,-1,0" RenderTransformOrigin="0.5,0.5" >
+            <DataGrid.ItemBindingGroup>
+                <BindingGroup/>
+            </DataGrid.ItemBindingGroup>
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,30 +34,26 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
             <DataGrid.Columns>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
+                <DataGridCheckBoxColumn Binding="{Binding checkd}" Width="*" >
+                    <DataGridCheckBoxColumn.HeaderTemplate>
                         <DataTemplate>
-                            <CheckBox Name="ckbSelectAll" ></CheckBox>
+                            <CheckBox Name="SelectAll" Content="全选" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="SelectAll" Unchecked="UnSelectAll" />
                         </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <CheckBox Name="ckbOnly"></CheckBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding TeacherName}" Width="*" Header="老师名称"/>
-                <DataGridTextColumn Binding="{Binding Account}" Width="*" Header="老师账号"/>
-                <DataGridComboBoxColumn ItemsSource="{Binding Source=SexName}" Width="*" Header="性别"/>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn Binding="{Binding teacher_name}" Width="*" Header="老师名称"/>
+                <DataGridTextColumn Binding="{Binding account}" Width="*" Header="老师账号"/>
+                <DataGridTextColumn Binding="{Binding password}" Width="*" Header="老师密码"/>
+                <DataGridComboBoxColumn TextBinding="{Binding sex}" ItemsSource="{Binding Source={StaticResource myEnum}}" Width="*" Header="性别"/>
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <Label Content="TeacherManagement" HorizontalAlignment="Left" Height="33" Margin="10,19,0,0" VerticalAlignment="Top" Width="139" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Symbol"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="170,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="272,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="385,26,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.474" Background="{x:Null}" FontFamily="Segoe UI Symbol" Click="DeleteClick"/>
-        <TextBlock x:Name="logger" HorizontalAlignment="Left" Margin="272,55,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="135"/>
+        <Label Content="TeacherManagement" HorizontalAlignment="Left" Height="33" Margin="10,19,0,0" VerticalAlignment="Top" Width="139" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Symbol" FontSize="14"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="177,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol" Click="SaveClick"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="272,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol" Click="AddClick" Visibility="Hidden"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="319,26,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.474" Background="{x:Null}" FontFamily="Segoe UI Symbol" Click="DeleteClick"/>
+        <TextBlock x:Name="logger" HorizontalAlignment="Left" Margin="41,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="443" Height="79" Grid.Row="1" Visibility="Hidden"/>
 
     </Grid>
 </UserControl>

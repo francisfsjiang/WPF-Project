@@ -28,12 +28,12 @@ namespace MyProject
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-            /*string username = this.tbUserName.Text;
+            //this.DialogResult = true;
+            string username = this.tbUserName.Text;
             string password = this.tbPassword.Password;
 
             DataTable dtTable = new DataTable();
-            string sqlstr = "SELECT password FROM Teacher WHERE teachername='"+username+"'";
+            string sqlstr = "SELECT password FROM Teacher WHERE account='"+username+"'";
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["TeacherDb"].ConnectionString);
             if (conn.State != ConnectionState.Open)
             {
@@ -59,7 +59,7 @@ namespace MyProject
                 this.WarningBox.Visibility = Visibility.Visible;
                 this.tbUserName.Text = "";
                 this.tbPassword.Password = "";
-            }*/
+            }
 
 
         }
