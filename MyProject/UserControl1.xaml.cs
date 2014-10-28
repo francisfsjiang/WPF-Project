@@ -28,10 +28,13 @@ namespace MyProject
         public string Account { get; set; }
         public string Password { get; set; }
         //public int? SexId { get; set; }
-        public string SexName { get; set; }
+
+        public Sex SexName{ get; set; }
+        public enum Sex { male=0, fmale=1};
     }
     public partial class UserControl1 : UserControl
     {
+        List<TeacherEn> lstTeach = new List<TeacherEn>();
         public UserControl1()
         {
             InitializeComponent();
@@ -55,8 +58,8 @@ namespace MyProject
             sda.SelectCommand=cmd;
             sda.Fill(dtTable);
 
-            List<TeacherEn> lstTeach = new List<TeacherEn>();
 
+            lstTeach.Clear();
             foreach (DataRow dr in dtTable.Rows)
             {
                 TeacherEn en = new TeacherEn();
@@ -65,10 +68,17 @@ namespace MyProject
                 en.Password = dr["password"].ToString();
                 en.Account = dr["account"].ToString();
                 //en.SexId = Convert.ToInt32(dr["sex"]);
-                en.SexName = Convert.ToString(dr["sex"]);
+                TeacherEn.Sex sex_value = (TeacherEn.Sex)Enum.Parse(typeof(TeacherEn.Sex), dr["sex"].ToString());
+                en.SexName = sex_value;
                 lstTeach.Add(en);
+               
             }
             dg.ItemsSource = lstTeach;
+        }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            this.logger.Text = lstTeach.Count().ToString();
         }
     }
 }

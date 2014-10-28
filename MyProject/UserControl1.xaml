@@ -4,19 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Width="507" Height="459" Loaded="UserControl_Load">
-    <Grid Height="507" VerticalAlignment="Bottom">
+    <Grid Height="459" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="354*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="378*"/>
         </Grid.RowDefinitions>
 
         <DataGrid Name="dg" AutoGenerateColumns="False" Grid.Row="2" Margin="1,2,-1,0" RenderTransformOrigin="0.5,0.5" >
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
-                    <SkewTransform AngleX="1.169"/>
+                    <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-3.48"/>
+                    <TranslateTransform/>
                 </TransformGroup>
             </DataGrid.RenderTransform>
             <DataGrid.Columns>
@@ -34,15 +34,16 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding TeacherName}" Width="*" Header="老师名称"/>
                 <DataGridTextColumn Binding="{Binding Account}" Width="*" Header="老师账号"/>
-                <DataGridTextColumn Binding="{Binding SexName}" Width="*" Header="性别"/>
+                <DataGridComboBoxColumn ItemsSource="{Binding Source=SexName}" Width="*" Header="性别"/>
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <Label Content="TeacherManagement" HorizontalAlignment="Left" Height="33.159" Margin="17.137,18.574,0,0" VerticalAlignment="Top" Width="139.029"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="17.137,20.845,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="227,33,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="342.857,20.843,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Label Content="TeacherManagement" HorizontalAlignment="Left" Height="33" Margin="10,19,0,0" VerticalAlignment="Top" Width="139" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Symbol"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="170,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="272,26,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" FontFamily="Segoe UI Symbol"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="385,26,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.474" Background="{x:Null}" FontFamily="Segoe UI Symbol" Click="DeleteClick"/>
+        <TextBlock x:Name="logger" HorizontalAlignment="Left" Margin="272,55,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="135"/>
 
     </Grid>
 </UserControl>
