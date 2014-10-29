@@ -53,6 +53,12 @@ namespace MyProject
                 {
                     this.DialogResult = true;
                 }
+                else
+                {
+                    this.WarningBox.Visibility = Visibility.Visible;
+                    this.tbUserName.Text = "";
+                    this.tbPassword.Password = "";
+                }
             }
             catch
             {

@@ -19,6 +19,7 @@ namespace MyProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserControl1 user_control;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,11 +27,16 @@ namespace MyProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-     //       this.gridMain.Children.Clear();
-       //     this.gridMain.Children.Add(new UserControl1());
-            this.sv.Content = new UserControl1();
+            user_control = new UserControl1();
+            this.sv.Content = user_control;
                 
 
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            user_control.SaveClick(new object(), new RoutedEventArgs());
+        }
+
     }
 }

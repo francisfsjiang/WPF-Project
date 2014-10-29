@@ -75,6 +75,7 @@ namespace MyProject
 
         private void DeleteClick(object sender, RoutedEventArgs e)
         {
+            SaveClick(new object(), new RoutedEventArgs());
             string sqlstr = "DELETE FROM [dbo].[Teacher] WHERE ID={0}";
             
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["TeacherDb"].ConnectionString);
@@ -85,18 +86,29 @@ namespace MyProject
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
-            foreach (TeacherType t in ListofTeachers)
+            for (int i = 0; i < ListofTeachers.Count; i++)
             {
-                if (t.checkd == true)
+                if (ListofTeachers[i].checkd == true)
                 {
-                    string sql_to_excute = string.Format(sqlstr, t.teacher_id);
-                    cmd.CommandText = sql_to_excute;
-                    cmd.ExecuteNonQuery();
-
+                        string sql_to_excute = string.Format(sqlstr, ListofTeachers[i].teacher_id);
+                        cmd.CommandText = sql_to_excute;
+                        cmd.ExecuteNonQuery();
+                        ListofTeachers.RemoveAt(i);
+                        i--;
                 }
             }
-            conn.Close();
-            LoadTeacherData();
+                /*foreach (TeacherType t in ListofTeachers)
+                {
+                    if (t.checkd == true)
+                    {
+                        string sql_to_excute = string.Format(sqlstr, t.teacher_id);
+                        cmd.CommandText = sql_to_excute;
+                        cmd.ExecuteNonQuery();
+                        ListofTeachers.Remove(t);
+                    }
+                }*/
+                conn.Close();
+            //LoadTeacherData();
         }
 
         private void SelectAll(object sender, RoutedEventArgs e)
@@ -116,7 +128,7 @@ namespace MyProject
             }
         }
 
-        private void SaveClick(object sender, RoutedEventArgs e)
+        public void SaveClick(object sender, RoutedEventArgs e)
         {
             DropData();
             string sqlstr = "INSERT INTO [dbo].[Teacher]([teachername],[account],[password],[sex]) VALUES('{0}','{1}','{2}','{3}')";
@@ -136,7 +148,7 @@ namespace MyProject
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
-            LoadTeacherData();
+            //LoadTeacherData();
         }
 
         public void DropData()

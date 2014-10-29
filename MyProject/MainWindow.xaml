@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MyProject.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="480" Width="740" AllowDrop="False" MinWidth="740" MinHeight="480" MaxHeight="480" MaxWidth="740">
+        Title="MainWindow" Height="480" Width="740" AllowDrop="False" MinWidth="740" MinHeight="480" MaxHeight="480" MaxWidth="740" Closed="Window_Closed" >
     <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40*"/>
