@@ -21,7 +21,7 @@
             <RowDefinition Height="378*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="dg" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" Grid.Row="2" Margin="1,2,-1,0" RenderTransformOrigin="0.5,0.5" >
+        <DataGrid Name="dg" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" Grid.Row="2" Margin="1,2,-1,0" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderBrush="{x:Null}" >
             <DataGrid.ItemBindingGroup>
                 <BindingGroup/>
             </DataGrid.ItemBindingGroup>
