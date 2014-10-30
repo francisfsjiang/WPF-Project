@@ -29,13 +29,14 @@ namespace MyProject
         {
             user_control = new UserControl1();
             this.sv.Content = user_control;
-                
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            user_control.SaveClick(new object(), new RoutedEventArgs());
+            if (user_control != null)
+            {
+                user_control.SaveClick(new object(), new RoutedEventArgs());
+            }
         }
 
     }
