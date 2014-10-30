@@ -27,7 +27,6 @@ namespace MyProject
     public partial class UserControl1 : UserControl
     {
         ObservableCollection<TeacherType> ListofTeachers = new ObservableCollection<TeacherType>();
-        HashSet<TeacherType> OriginData = new HashSet<TeacherType>();
         public UserControl1()
         {
             InitializeComponent();
@@ -67,7 +66,7 @@ namespace MyProject
                     false
                     );
                 ListofTeachers.Add(en);
-                OriginData.Add(en);
+                //OriginData.Add(en);
                
             }
             conn.Close();
@@ -75,7 +74,7 @@ namespace MyProject
 
         private void DeleteClick(object sender, RoutedEventArgs e)
         {
-            SaveClick(new object(), new RoutedEventArgs());
+            /*SaveClick(new object(), new RoutedEventArgs());
             string sqlstr = "DELETE FROM [dbo].[Teacher] WHERE ID={0}";
             
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["TeacherDb"].ConnectionString);
@@ -85,14 +84,14 @@ namespace MyProject
             }
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = CommandType.Text;*/
             for (int i = 0; i < ListofTeachers.Count; i++)
             {
                 if (ListofTeachers[i].checkd == true)
                 {
-                        string sql_to_excute = string.Format(sqlstr, ListofTeachers[i].teacher_id);
-                        cmd.CommandText = sql_to_excute;
-                        cmd.ExecuteNonQuery();
+                        //string sql_to_excute = string.Format(sqlstr, ListofTeachers[i].teacher_id);
+                        //cmd.CommandText = sql_to_excute;
+                        //cmd.ExecuteNonQuery();
                         ListofTeachers.RemoveAt(i);
                         i--;
                 }
@@ -107,7 +106,7 @@ namespace MyProject
                         ListofTeachers.Remove(t);
                     }
                 }*/
-                conn.Close();
+                //conn.Close();
             //LoadTeacherData();
         }
 
