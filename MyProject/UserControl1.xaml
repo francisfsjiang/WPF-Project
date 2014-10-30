@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:core="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:MyProject"
-             mc:Ignorable="d" Width="507" Height="459" Loaded="LoadTeacherData">
+             mc:Ignorable="d" Width="507" Height="440" Loaded="LoadTeacherData">
 
     <UserControl.Resources>
         <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
